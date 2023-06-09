@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+  <script>
+    function readFile() {
+      // Get the file selected by the user
+      var file = document.getElementById("fileInput").files[0];
+      // Create a FileReader object
+      var reader = new FileReader();
+      // Define the operation after reading the file
+      reader.onload = function (e) {
+        // Get the file content
+        var text = e.target.result;
+        // Print the file content in the console
+        console.log(text);
+        // Display the file content on the page
+        document.getElementById("output").innerHTML = text;
+      };
+      // Read the file as text format
+      reader.readAsText(file);
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Example: Using JavaScript to read local files</h1>
+  <input type="file" id="fileInput">
+  <button onclick="readFile()">Click to read file</button>
+  <p id="output"></p>
+</body>
+
+</html>
